@@ -115,7 +115,7 @@ function loadCustomers() {
                             <i class="fa-solid fa-arrow-right fa-arrow-margin"></i>
                             <span class="starting-date">${startingDate}</span>
                             <i class="fa-solid fa-arrow-right fa-arrow-margin"></i>
-                            <span class="ending-date">amount</span>
+                            <span class="ending-date">${amount}</span>
                             <span class="user-leaved"><i class="fa-solid fa-user-xmark"></i></span>
                             ${exittime}
                         `;
