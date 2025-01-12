@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Panel</title>
+    <link rel="stylesheet" href="overview.css">
+    <link rel=stylesheet id=google-fonts-1-css href="https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap&amp;ver=6.6" media=all>
+    <script src=https://kit.fontawesome.com/4838fef60e.js crossorigin=anonymous></script></head>
+    <link rel="shortcut icon" href="../../Images/favicon-32x32.png" type=image/x-icon>
+    <link rel="stylesheet" href="../../Exsiting User/exsiting-users.css">
+</head>
+<body>
+
+        <!-- Popup Modal -->
+        <div id="removeCustomerModal" class="modal">
+            <div class="modal-content">
+            <h2>Confirm Action</h2>
+            <label for="passwordInput">Enter Password:</label>
+            <input type="password" id="passwordInput" placeholder="Enter password">
+            <button id="confirmRemoveBtn">Confirm</button>
+            <button id="cancelRemoveBtn">Cancel</button>
+            </div>
+        </div>
+        
+    <div class="header">
+        <img src="/Images/Home Land Hotel Logo.png" alt="home-land-hotel-logo" class="logo">
+        <h1 class="title">Home Land Hotel</h1>
+    </div>
+
+    <div class="overview-boxes">
+
+        <div class="total-rooms-reserved">
+            <i class="fa-solid fa-house"></i>
+            <h3>የተያዙ ክፍሎች</h3>
+            <h1>loading...</h1>
+        </div>
+
+        <div class="total-money-made-day">
+            <i class="fa-solid fa-calendar-day"></i>
+            <h3>ዛሬ በአጠቃላይ የተሰራ</h3>
+            <h1>Loading...</h1>
+        </div>
+        
+        <div class="total-money-made-month">
+            <i class="fa-solid fa-calendar-days"></i>
+            <h3>በዚ ወር በ አጠቃላይ የተሰራ</h3>
+            <h1>Loading...</h1>
+        </div>
+    </div>
+    
+
+    <div class="daily-table">
+
+        <div class="table">
+            <div class="floor-one">
+                <h1>Floor One</h1>
+                <ul id="floor-one">
+                    <!-- Dynamic room numbers will be inserted here -->
+                </ul>
+            </div>
+            <div class="floor-two">
+                <h1>Floor Two</h1>
+                <ul id="floor-two">
+                    <!-- Dynamic room numbers will be inserted here -->
+                </ul>
+            </div>
+            <div class="floor-three">
+                <h1>Floor Three</h1>
+                <ul id="floor-three">
+                    <!-- Dynamic room numbers will be inserted here -->
+                </ul>
+            </div>
+            <div class="floor-four">
+                <h1>Floor Four</h1>
+                <ul id="floor-four">
+                    <!-- Dynamic room numbers will be inserted here -->
+                </ul>
+            </div>
+        </div>
+        
+
+        <div class="keys">
+            <h1>Keys</h1>
+            <div class="grid-keys">
+
+                <div class="black">
+                    <div style="background-color: black;"></div> <h3>Payed and Still there</h3>
+                </div>
+
+                <div class="orange">
+                    <div style="background-color: #fc6b13;"></div> <h3>There are there but didn't pay</h3>
+                </div>
+
+                <div class="blue">
+                    <div style="background-color: #67a8df;"></div> <h3>They have paid advance</h3>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <div class="floors-div">
+
+        <div class="floors">
+    
+            <div class="floor-one">
+                <h1>ፎቅ 1</h1>
+                <ul>
+                    <dotlottie-player src="https://lottie.host/ed409efc-bd04-4cd0-8bc4-e9a50c5d1cb5/dJYpJ6yb21.lottie" background="transparent" speed="1" style="width: 100px; height: 100px" loop autoplay></dotlottie-player>
+                </ul>
+            </div>
+    
+            <div class="floor-two">
+                <h1>ፎቅ 2</h1>
+                <ul>
+                    <dotlottie-player src="https://lottie.host/ed409efc-bd04-4cd0-8bc4-e9a50c5d1cb5/dJYpJ6yb21.lottie" background="transparent" speed="1" style="width: 100px; height: 100px" loop autoplay></dotlottie-player>
+                </ul>
+            </div>
+    
+            <div class="floor-three">
+                <h1>ፎቅ 3</h1>
+                <ul>  
+                    <dotlottie-player src="https://lottie.host/ed409efc-bd04-4cd0-8bc4-e9a50c5d1cb5/dJYpJ6yb21.lottie" background="transparent" speed="1" style="width: 100px; height: 100px" loop autoplay></dotlottie-player>
+                </ul>
+            </div>
+    
+            <div class="floor-four">
+                <h1>ፎቅ 4</h1>
+                <ul>
+                    <dotlottie-player src="https://lottie.host/ed409efc-bd04-4cd0-8bc4-e9a50c5d1cb5/dJYpJ6yb21.lottie" background="transparent" speed="1" style="width: 100px; height: 100px" loop autoplay></dotlottie-player>
+                </ul>
+            </div>
+    
+        </div>
+        
+        </div>
+
+    <div class="days">
+        <div class="choose-day">
+            <input type="date" class="free-hand-date">
+        </div>
+    
+    </div>
+    
+
+    <div class="rooms"></div>
+
+
+    <script type="module" src="../../Admin-Panel/Overview/overview.js"></script>
+    <script type="module" src="../../Exsiting User/exsisting-users.js"></script>
+</body>
+</html>

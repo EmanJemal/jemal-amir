@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Land Hotel</title>
+    <link rel="stylesheet" href="org.css">
+    <link rel=stylesheet id=google-fonts-1-css href="https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap&amp;ver=6.6" media=all>
+    <script src=https://kit.fontawesome.com/4838fef60e.js crossorigin=anonymous></script></head>
+    <link rel="stylesheet" href="../General/general.css">
+    <link rel="shortcut icon" href="../Images/favicon-32x32.png" type=image/x-icon>
+    <link rel="stylesheet" href="../General/animation.css">
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+<body>
+    
+        <!-- Loading Animation -->
+        <div id="loading-overlay">
+            <dotlottie-player src="https://lottie.host/ed409efc-bd04-4cd0-8bc4-e9a50c5d1cb5/dJYpJ6yb21.lottie" background="transparent" speed="1" style="width: 200px; height: 200px" loop autoplay></dotlottie-player>
+        </div>
+    
+
+    <!-- Popup Modal -->
+    <div id="removeCustomerModal" class="modal">
+        <div class="modal-content">
+            <h2>Recept</h2>
+
+
+
+            <div class="information-customer">
+
+                <div>
+                    <h4>Name: </h4> <span class="name"></span>
+                </div>
+
+                <div>
+                    <h4>Age: </h4><span class="age"></span>
+                </div>
+
+                <div>
+                    <h4>Date of birth: </h4> <span class="date-of-birth"></span>
+                </div>
+
+                <div>
+                    <h4>Final Date: </h4> <span class="final-date"></span>
+                </div>
+
+                <div>
+                    <h4>Payment Method: </h4> <span class="payment-method"></span>
+                </div>
+
+                <div>
+                    <h4>Room: </h4> <span class="room"></span>
+                </div>
+
+                <div>
+                    <h4>Price: </h4> <span class="Price"></span>
+                </div>
+
+            </div>
+            
+            <label for="passwordInput">Enter Name:</label>
+            <input type="password" id="passwordInput" placeholder="Enter password">
+            <button id="confirmRemoveBtn">Confirm</button>
+            <button id="cancelRemoveBtn">Cancel</button>
+        </div>
+    </div>
+    
+    
+    <div class="header">
+        <img src="../Images/Home Land Hotel Logo.png" alt="home-land-hotel-logo" class="logo">
+        <h1 class="title">Home Land Hotel</h1>
+    </div>
+
+    <div class="tools">
+
+        <a href="../index.html"><div class="add-users">
+            <i class="fa-solid fa-user-plus"></i>
+            <h1>ደምበኛ መመዝገብ</h1>
+        </div></a>
+
+        <a href="../Exsiting User/exsiting-users.html"><div class="exsiting-users">
+            <i class="fa-solid fa-user"></i>
+            <h1>ተጠቃሚ</h1>
+        </div></a>
+
+        <a href="../Debtors/Debtors.html"><div class="debtors">
+            <i class="fa-solid fa-money-bill-transfer"></i>
+            <h1>እዳ</h1>
+        </div></a>
+
+        <a href="../Org/org.html"><div class="user-data active">
+            <i class="fa-solid fa-users"></i>
+            <h1>የድርጅት ምዝገባ</h1>
+        </div></a>
+
+    </div>
+
+
+    <div class="org-info">
+        <h1>የድርጅት መርጃ</h1>
+
+        <div class="lables">
+
+            <div class="name-lable">
+                <h3 class="lable">የድርጅት ስም</h1>
+                <input type="text" placeholder="የድርጅት ስም" class="org-of-customer name">
+            </div>
+
+
+            <div class="date-lable">
+                <h3 class="lable">ቀነ ገደብ</h1>
+                <input type="date"  class="start-date"> <i class="fa-solid fa-arrow-right"></i>
+                <input type="date"  class="end-date">
+            </div>
+
+
+            <div class="employ-lable">
+                <h3 class="lable">የእንግዶች ብዛት</h1>
+                <input type="text" placeholder="የእንግዶች ብዛት" class="org-of-employ noEmploy" id="org-of-employ">
+            </div>
+
+
+            <div class="noRoomReserved">
+                <h3 class="lable">Room ተከራይ ብዛት</h1>
+                <input type="text" placeholder="Room ተከራይ ብዛት" class="room-holders">
+            </div>
+
+            <div class="noEmployRoomReserve">
+                <h3 class="lable">በ አጠቃላይ የተያዙ Room</h1>
+                <input type="text" placeholder="በ አጠቃላይ የተያዙ Room" class="room-numbers selectedRoom">
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="rooms_reserved">
+
+        <!-- Floor 1 -->
+        <div class="floor-1">
+            <h1>ፎቅ 1</h1>
+            <ul id="floor-1-rooms">
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor101" value="101">Room 101 <i class="fa-solid fa-arrow-right"></i> <h4 class="deluxe-type">Deluxe</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor102" value="102">Room 102 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor103" value="103">Room 103 <i class="fa-solid fa-arrow-right"></i> <h4 class="double-type">Double</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor104" value="104">Room 104 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor105" value="105">Room 105 <i class="fa-solid fa-arrow-right"></i> <h4 class="deluxe-type">Deluxe</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor106" value="106">Room 106 <i class="fa-solid fa-arrow-right"></i> <h4 class="deluxe-type">Deluxe</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor107" value="107">Room 107 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor108" value="108">Room 108 <i class="fa-solid fa-arrow-right"></i> <h4 class="double-type">Double</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor109" value="109">Room 109 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+            </ul>
+        </div>
+    
+        <!-- Floor 2 -->
+        <div class="floor-2">
+            <h1>ፎቅ 2</h1>
+            <ul id="floor-2-rooms">
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor201" value="201">Room 201 <i class="fa-solid fa-arrow-right"></i> <h4 class="deluxe-type">Deluxe</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor202" value="202">Room 202 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor203" value="203">Room 203 <i class="fa-solid fa-arrow-right"></i> <h4 class="double-type">Double</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor204" value="204">Room 204 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor205" value="205">Room 205 <i class="fa-solid fa-arrow-right"></i> <h4 class="deluxe-type">Deluxe</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor206" value="206">Room 206 <i class="fa-solid fa-arrow-right"></i> <h4 class="deluxe-type">Deluxe</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor207" value="207">Room 207 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor208" value="208">Room 208 <i class="fa-solid fa-arrow-right"></i> <h4 class="double-type">Double</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor209" value="209">Room 209 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+            </ul>
+        </div>
+    
+        <!-- Floor 3 -->
+        <div class="floor-3">
+            <h1>ፎቅ 3</h1>
+            <ul id="floor-3-rooms">
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor301" value="301">Room 301 <i class="fa-solid fa-arrow-right"></i> <h4 class="deluxe-type">Deluxe</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor302" value="302">Room 302 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor303" value="303">Room 303 <i class="fa-solid fa-arrow-right"></i> <h4 class="double-type">Double</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor304" value="304">Room 304 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor305" value="305">Room 305 <i class="fa-solid fa-arrow-right"></i> <h4 class="deluxe-type">Deluxe</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor306" value="306">Room 306 <i class="fa-solid fa-arrow-right"></i> <h4 class="deluxe-type">Deluxe</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor307" value="307">Room 307 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor308" value="308">Room 308 <i class="fa-solid fa-arrow-right"></i> <h4 class="double-type">Double</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor309" value="309">Room 309 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+            </ul>
+        </div>
+    
+        <!-- Floor 4 -->
+        <div class="floor-4">
+            <h1>ፎቅ 4</h1>
+            <ul id="floor-4-rooms">
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor401" value="401">Room 401 <i class="fa-solid fa-arrow-right"></i> <h4 class="deluxe-type">Deluxe</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor402" value="402">Room 402 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor403" value="403">Room 403 <i class="fa-solid fa-arrow-right"></i> <h4 class="double-type">Double</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor404" value="404">Room 404 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor405" value="405">Room 405 <i class="fa-solid fa-arrow-right"></i> <h4 class="deluxe-type">Deluxe</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor406" value="406">Room 406 <i class="fa-solid fa-arrow-right"></i> <h4 class="deluxe-type">Deluxe</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor407" value="407">Room 407 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="booked"><input type="radio" class="floor-input" name="floor408" value="408">Room 408 <i class="fa-solid fa-arrow-right"></i> <h4 class="double-type">Double</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+                <li class="notbooked"><input type="radio" class="floor-input" name="floor409" value="409">Room 409 <i class="fa-solid fa-arrow-right"></i> <h4 class="Standard-type">Standard</h4> <i class="fa-solid fa-arrow-right"></i> <span class="price">Loading...</span> </li>
+            </ul>
+        </div>
+    
+    </div>
+
+
+    <div class="employ-name">
+        <h1>የእንግዶች ስም ዝርዝር</h1>
+
+        <div class="lables">
+
+            <div class="name-lable-emp" id="name-label-container">
+                <h3 class="lable">የእንግዳ ስም</h1>
+                <input type="text" placeholder="የእንግዳ ስም" class="org-of-customer">
+                <input type="text" placeholder="Room Number" class="room-num">
+            </div>
+
+
+
+            
+        </div>
+    </div>
+
+
+
+    <div class="submission-btn">
+        <button  id="submit-btn">Book The Organisation</button>
+    </div>
+
+
+    <script src="../General/animation.js"></script>
+    <script src="org.js" type="module"></script>
+</body>
+</html>

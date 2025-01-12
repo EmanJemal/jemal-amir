@@ -1,0 +1,302 @@
+*,
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", poppin;
+}
+.header {
+    width: 100%;
+    border-bottom-color: #fc6b13;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
+.header .title{
+    display: inline-block;
+    text-align: center;
+}
+.logo{
+    width: 70px;
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+}
+.overview-boxes{
+    width: 100%;
+    margin: 30px;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+.total-rooms-reserved{
+    width: 350px;
+    height: 160px;
+    background-color: #67a8df;
+    border-radius: 50px;
+    color: white;
+}
+.total-money-made-month{
+    width: 350px;
+    height: 160px;
+    background-color: #67a8df;
+    border-radius: 50px;
+    color: white;
+}
+.total-money-made-day{
+    width: 350px;
+    height: 160px;
+    background-color: #fc6b13;
+    border-radius: 50px;
+    color: white;
+}
+.overview-boxes h3{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+}
+.overview-boxes h1{
+    text-align: center;
+    font-size: 30px;
+}
+.overview-boxes i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+}
+.daily-table{
+    border-color: #67a8df;
+    border-style: solid;
+    border-width: 2px;
+    margin: 20px;
+    padding: 0 20px 20px 20px;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: 70% 30%;
+    position: relative;
+}
+.org-daily-table{
+    border-color: #67a8df;
+    border-style: solid;
+    border-width: 2px;
+    margin: 20px;
+    padding: 0 20px 20px 20px;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: 70% 30%;
+    position: relative;
+}
+.daily-table li{
+    display: inline-block;
+    font-weight: bold;
+    margin-left: 30px;
+    font-size: 20px;
+}
+.table h1{
+    text-decoration: underline;
+    margin-top: 30px;
+}
+.keys{
+    border-color: #fc6b13;
+    border-width: 3px;
+    border-style: solid;
+    height: 40%;
+    position: absolute;
+    right: 10%;
+    top: 30%;
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+
+    display: grid;
+    grid-template-rows: repeat(4, 10px);
+}
+.keys h1{
+    font-size: 20px;
+}
+.grid-keys{
+    margin-top: 20px;
+}
+.grid-keys h3{
+    font-size: 14px;
+    display: inline-block;
+
+}
+.grid-keys div div{
+    width: 10px;
+    height: 10px; 
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.daily-table .red{
+    color: red;
+}
+.daily-table .orange{
+    color: #fc6b13;
+}
+.daily-table .blue{
+    color: #67a8df;
+}
+
+/* header*/
+
+.header {
+    width: 100%;
+    border-bottom-color: #fc6b13;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
+.header .title{
+    display: inline-block;
+    text-align: center;
+}
+.logo{
+    width: 70px;
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/*Days*/
+.days{
+    border-color: #67a8df;
+    border-style: solid;
+    border-width: 2px;
+    margin: 20px;
+    border-radius: 10px;
+    height: 100px;
+
+    display: grid;
+    grid-template-columns: repeat(7, 14%);
+    position: relative;
+}
+.day{
+    border-right-color: black;
+    border-right-width: 2px;
+    border-right-style: solid;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.day:hover{
+    background-color: rgb(233, 233, 233);
+}
+.choose-day input{
+    width: 100%;
+    border-right-color: black;
+    border-right-width: 2px;
+    border-right-style: solid;
+    height: 100%;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px;
+
+    cursor: pointer;
+}
+.choose-day:hover{
+    background-color: rgb(233, 233, 233);
+}
+
+/*rooms*/
+.rooms{
+    display: grid;
+    grid-template-columns: repeat(2, 45%);
+    column-gap: 10px;
+}
+.room{
+    border-color: #67a8df;
+    border-style: solid;
+    border-width: 2px;
+    margin: 20px;
+    border-radius: 10px;
+    height: 300px;
+    padding: 20px;
+}
+.day.selected {
+    background-color: #f0f0f0;
+    border: 2px solid #000;
+}
+
+.date{
+    color: #fc6b13;
+}
+.color-blue{
+    color: #67a8df;
+}
+.month-last-six-day{
+    margin-right: 5px;
+}
+
+/*Org Table*/
+.org-daily-table .table div h1{
+    font-size: 20px;
+}
+li{
+    list-style: none;
+}
+@media(max-width: 1162px){
+    .overview-boxes{
+        grid-template-columns: 50% 50%;
+    }
+    .overview-boxes div{
+        margin-bottom: 30px;
+    }
+}
+@media(max-width: 852px){
+    .keys{
+        height: 30%;
+        top: 65%;
+    }
+    .overview-boxes{
+        grid-template-columns: 100%;
+    }
+    .overview-boxes div{
+        width: 80%;
+        margin-left: 50px;
+    }
+}
+@media(max-width: 800px){
+    .days{
+        grid-template-columns: repeat(4, 25%);
+    }
+}
+@media(max-width: 756px){
+    .daily-table{
+        height: 800px;
+    }
+}
+@media(max-width: 655px){
+    .room{
+        height: 400px;
+    }
+    .rooms{
+        grid-template-columns: repeat(1, 100%);
+    }
+}
+@media(max-width: 500px){
+    .daily-table{
+        height: 850px;
+    }
+    .overview-boxes div{
+        margin-left: 0;
+    }
+    .days{
+        grid-template-columns: repeat(3, 30%);
+        height: 200px;
+    }
+}
+@media(max-width: 400px){
+    .daily-table{
+        height: 900px;
+    }
+}

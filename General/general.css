@@ -1,0 +1,100 @@
+*,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", poppin;
+}
+.header {
+    width: 100%;
+    border-bottom-color: #fc6b13;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
+.header .title{
+    display: inline-block;
+    text-align: center;
+}
+.logo{
+    width: 70px;
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+}
+.tools{
+    width: 90%;
+    padding: 0px 20px;
+    height: 100px;
+    margin: 50px;
+    border-radius: 10px;
+
+    border-top-color: #67a8df;
+    border-top-style: solid;
+    border-top-width: 2px;
+
+    border-left-color: #67a8df;
+    border-left-style: solid;
+    border-left-width: 2px;
+
+    border-right-color: #67a8df;
+    border-right-style: solid;
+    border-right-width: 2px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 24%);
+    column-gap: 10px;
+}
+.tools i{
+    font-size: 30px;
+    color: #fc6b13;
+}
+.tools h1{
+    font-size: 20px;
+    color: #fc6b13;
+}
+.tools div{
+    margin-top: 5px;
+    display: flex;         
+    align-items: center;   
+    justify-content: center; 
+    flex-direction: column; 
+    text-align: center;   
+    gap: 10px;   
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.tools div:hover{
+    background-color: #fc6b13;
+}
+.tools div:hover i, .tools div:hover h1 {
+    color: white;
+}
+.tools .active{
+    background-color: #fc6b13;
+}
+.tools .active h1{
+    color: white;
+}
+.tools .active i{
+    color: white;
+}
+li {
+    list-style: none;
+    margin: 0;
+}
+@media(max-width: 752px){
+    .tools{
+        height: 200px;
+        grid-template-columns: repeat(2, 50%);
+    }
+}
+@media(max-width: 552px){
+    .tools{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}

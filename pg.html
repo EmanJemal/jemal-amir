@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+</head>
+<body>
+
+    <label for="dateInput">Select Date and Time:</label>
+    <input type="text" id="dateInput" placeholder="Select Date and Time">
+
+
+    <script>
+    const input = document.getElementById('dateInput');
+    
+    // Example of using Moment.js to format a date
+    input.value = moment().format("YYYY-MM-DD HH:mm");
+</script>
+</body>
+</html>
