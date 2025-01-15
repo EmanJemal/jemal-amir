@@ -70,23 +70,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
 // Add event listener to the submit button
 const submitButton = document.querySelector('#submit-btn');
-document.querySelector('.days-lable').value = 1;
-
+document.querySelector('.days-lable input').innerHTML = 1;
 submitButton.addEventListener('click', () => {
     // Fetch form values
-    const name = document.querySelector('.name-lable input').value;
-    const age = document.querySelector('.age-lable input').value;
-    const nationality = document.querySelector('.nationality-lable input').value;
-    const dob = document.querySelector('.dob-lable input').value;
+    const name = document.querySelector('.name-lable input').value.trim();
+    const age = document.querySelector('.age-lable input').value.trim();
+    const nationality = document.querySelector('.nationality-lable input').value.trim();
+    const dob = document.querySelector('.dob-lable input').value.trim();
     const sex = document.querySelector('#sex-options').value;
-    const days = document.querySelector('.days-lable input').value;
-    const finalDate = document.querySelector('.final-days-lable input').value;
+    const days = document.querySelector('.days-lable input').value.trim();
+    const finalDate = document.querySelector('.final-days-lable input').value.trim();
     const selectedPayment = document.querySelector('input[name="payment"]:checked')?.value;
-    const amountInBirr = document.querySelector('.calculation .answer').innerHTML;
-    const nameOfRec = document.getElementById('passwordInput').innerHTML;
 
     // Identify selected room
     let selectedRoom = null;
@@ -94,30 +90,45 @@ submitButton.addEventListener('click', () => {
         const checkedRoom = document.querySelector(`input[name="${floor}"]:checked`);
         if (checkedRoom) selectedRoom = checkedRoom.value;
     });
-    selectedRoom = selectedRoom || 'No room selected';
 
+    // Validation checks
+    if (!name) {
+        alert('Please enter your name.');
+        return;
+    }
 
+    if (!selectedRoom) {
+        alert('Please select a room.');
+        return;
+    }
+
+    if (!days || isNaN(days) || days <= 0) {
+        alert('Please enter a positive number of days.');
+        return;
+    }
+
+    if (!selectedPayment) {
+        alert('Please select a payment method.');
+        return;
+    }
+
+    // Gather data for submission
+    const amountInBirr = document.querySelector('.calculation .answer').innerHTML;
+    const nameOfRec = document.getElementById('passwordInput').innerHTML;
     const timestamp = Date.now();
-    // Create a Date object
-        const date = new Date(timestamp);
-
-        // Convert to Ethiopian time (UTC+3)
-        const options = {
-            timeZone: 'Africa/Addis_Ababa',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: true
-        };
-
-        // Format the date to Ethiopian time
+    const date = new Date(timestamp);
+    const options = {
+        timeZone: 'Africa/Addis_Ababa',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+    };
     const ethiopianTime = new Intl.DateTimeFormat('en-US', options).format(date);
 
-
-        
     const userData = {
         name: name,
         age: age,
@@ -131,104 +142,47 @@ submitButton.addEventListener('click', () => {
         finalDate: finalDate,
         amountInBirr: amountInBirr,
         nameOfRec: nameOfRec
-    }
+    };
 
-    const paymentData = {
-        name: name,
-        age: age,
-        nationality: nationality,
-        dob: dob,
-        sex: sex,
-        days: days,
-        selectedRoom: selectedRoom,
-        timestamp: ethiopianTime,
-        paymentMethod: selectedPayment,
-        amountInBirr: amountInBirr,
-        nameOfRec: nameOfRec
-    }
+    const paymentData = { ...userData };
 
     showRemovePopup(userData);
 
+    document.getElementById('confirmRemoveBtn').addEventListener('click', () => {
+        const customerRef = ref(database, 'customers');
+        const customerKey = name.replace(/\s+/g, '_');
+        const userRef = ref(database, `customers/${customerKey}`);
 
-    document.getElementById('confirmRemoveBtn').addEventListener('click', ()=>{
-
-
-            // Push data to Firebase Realtime Database
-            const customerRef = ref(database, 'customers');
-            const newCustomerRef = push(customerRef); // Creates a new unique entry
-            const customerKey = name.replace(/\s+/g, '_'); 
-
-            const userRef = ref(database, `customers/${customerKey}`);
-
-            const timestamp = Date.now();
-        // Create a Date object
-            const date = new Date(timestamp);
-
-            // Convert to Ethiopian time (UTC+3)
-            const options = {
-                timeZone: 'Africa/Addis_Ababa',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false
-            };
-
-            // Format the date to Ethiopian time
-            const ethiopianTime = new Intl.DateTimeFormat('en-US', options).format(date);
-
-            let selectedRoom = null;
-            ['floor1', 'floor2', 'floor3', 'floor4'].forEach(floor => {
-                const checkedRoom = document.querySelector(`input[name="${floor}"]:checked`);
-                if (checkedRoom) selectedRoom = checkedRoom.value;
-            });
-        
-            if (selectedRoom && selectedRoom !== 'No room selected') {
-                updateRoomStatus(selectedRoom);
-            }
-
-            
-            set(userRef, userData)
+        set(userRef, userData)
             .then(() => {
                 alert('Customer information submitted successfully!');
-                // Optionally clear the form
                 document.querySelectorAll('input').forEach(input => input.value = '');
                 document.querySelector('#sex-options').value = 'None';
             })
-            .catch((error) => {
+            .catch(error => {
                 console.error('Error saving data: ', error);
                 alert('Failed to submit customer information!');
             });
 
+        const randomKey = Math.floor(1000000000 + Math.random() * 9000000000);
+        const amtRef = ref(database, `Payments/${randomKey}`);
 
-            // Function to generate a 7-digit random number
-            function generateRandomKey() {
-                return Math.floor(1000000000 + Math.random() * 90000000000); // Generates a 7-digit random number
-            }
+        set(amtRef, paymentData)
+            .then(() => {
+                console.log('Payment data successfully saved!');
+            })
+            .catch(error => {
+                console.error('Error saving payment data: ', error);
+                alert('Failed to submit customer payment information!');
+            });
 
-            const randomKey = generateRandomKey(); // Generate a unique 7-digit random number
-
-            // Reference to the Payments node in the database
-            const paymentRef = ref(database, 'Payments');
-
-            // Create a reference for the new payment entry with the 7-digit random key
-            const amtRef = ref(database, `Payments/${randomKey}`);
-
-            set(amtRef, paymentData)
-                .then(() => {
-                    console.log('Payment data successfully saved!');
-                })
-                .catch((error) => {
-                    console.error('Error saving data: ', error);
-                    alert('Failed to submit customer payment information!');
-                });
-
-
+        if (selectedRoom) {
+            updateRoomStatus(selectedRoom);
+        }
     });
-
 });
+
+
 
 // Real-time Listener for Room Availability
 // Reference both 'rooms' and 'organisation_room'
